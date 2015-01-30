@@ -7,8 +7,14 @@
 %p
   %b Enrolled Classrooms:
   - @student.classrooms.each do |classroom|
-    %p
-      = classroom.name
+    .classroom{ id: "classroom-#{classroom.id}" }
+      %h3
+        = classroom.name
+      %h4 Assignments:
+      %ul
+        - classroom.assignments.each do |assignment|
+          %li
+            =assignment.name
 
 %h4 Assign a student to classrooms:
 #assign-student-to-classroom
