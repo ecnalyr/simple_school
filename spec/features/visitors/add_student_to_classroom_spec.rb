@@ -13,8 +13,8 @@ feature 'Add student to classroom classroom' do
 
     visit student_path(student)
     within '#assign_student_to_classroom' do
-      select('Nephrology')
-      click_button 'Assign Student'
+      check('Nephrology')
+      click_button 'Update Student'
     end
 
     expect(page).to have_content 'Nephrology'

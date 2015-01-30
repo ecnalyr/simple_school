@@ -4,6 +4,22 @@
   %b Name:
   = @student.name
 
+%p
+  %b Enrolled Classrooms:
+  - @student.classrooms.each do |classroom|
+    %p
+      = classroom.name
+
+%h4 Assign a student to classrooms:
+#assign_student_to_classroom
+  = simple_form_for(@student) do |f|
+
+    .form-inputs
+      = f.association :classrooms, as: :check_boxes
+
+    .form-actions
+      = f.button :submit
+
 = link_to 'Edit', edit_student_path(@student)
 \|
 = link_to 'Back', students_path
