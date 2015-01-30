@@ -1,4 +1,4 @@
-# Feature: Home page
+# Feature: Create Classroom
 #   As a visitor
 #   I want to create a classroom
 #   So I can have more classrooms
