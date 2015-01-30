@@ -4,6 +4,27 @@
   %b Name:
   = @classroom.name
 
+#list-of-assignments
+  %div
+    %b Assignments:
+    - @classroom.assignments.each do |assignment|
+      %p
+        = assignment.name
+
+#create-assignment
+  %h4 Create Assignment
+  = simple_form_for(@assignment) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.input :name
+      = f.hidden_field :classroom_id
+
+    .form-actions
+      = f.button :submit
+
+
+
 = link_to 'Edit', edit_classroom_path(@classroom)
 \|
 = link_to 'Back', classrooms_path

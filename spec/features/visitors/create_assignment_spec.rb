@@ -10,11 +10,12 @@ feature 'Create assignment' do
   scenario 'visitor can create an assignment' do
     classroom = create(:classroom, name: 'Mathematics of Quantum Neutrino Fields')
     visit classroom_path(classroom)
-    click_link 'Add Assignment'
-    fill_in 'Name', with: 'Busy Work'
-    click_button 'Create Assignment'
+    within '#create-assignment' do
+      fill_in 'Name', with: 'Busy Work'
+      click_button 'Create Assignment'
+    end
     within '#list-of-assignments' do
-      expect(page).to have_content 'Mathematics'
+      expect(page).to have_content 'Busy Work'
     end
   end
 end
