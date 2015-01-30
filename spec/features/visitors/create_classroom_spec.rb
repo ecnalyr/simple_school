@@ -3,7 +3,7 @@
 #   I want to create a classroom
 #   So I can have more classrooms
 feature 'Create classroom' do
-  # Scenario: Visit the home page
+  # Scenario: Creating a classroom
   #   Given I am a visitor
   #   When create a classroom
   #   Then I see the classroom in my list of classrooms
