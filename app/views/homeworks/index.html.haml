@@ -1,0 +1,27 @@
+%h1 Listing homeworks
+
+%table
+  %thead
+    %tr
+      %th Work
+      %th Submitted
+      %th Assignment
+      %th Student
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @homeworks.each do |homework|
+      %tr
+        %td= homework.work
+        %td= homework.submitted
+        %td= homework.assignment
+        %td= homework.student
+        %td= link_to 'Show', homework
+        %td= link_to 'Edit', edit_homework_path(homework)
+        %td= link_to 'Destroy', homework, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Homework', new_homework_path

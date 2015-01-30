@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Work:
+  = @homework.work
+%p
+  %b Submitted:
+  = @homework.submitted
+%p
+  %b Assignment:
+  = @homework.assignment
+%p
+  %b Student:
+  = @homework.student
+
+= link_to 'Edit', edit_homework_path(@homework)
+\|
+= link_to 'Back', homeworks_path

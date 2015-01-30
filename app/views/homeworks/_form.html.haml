@@ -1,0 +1,11 @@
+= simple_form_for(@homework) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :work
+    = f.input :submitted
+    = f.association :assignment
+    = f.association :student
+
+  .form-actions
+    = f.button :submit
