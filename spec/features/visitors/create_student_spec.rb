@@ -3,7 +3,7 @@
 #   I want to create a student
 #   So I can have more students
 feature 'Create student' do
-  # Scenario: Creating a student
+  # Scenario: Viewing home page
   #   Given I am a visitor
   #   When create a student
   #   Then I see the student in my list of students
