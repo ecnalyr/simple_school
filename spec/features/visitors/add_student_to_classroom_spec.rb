@@ -12,7 +12,7 @@ feature 'Add student to classroom classroom' do
     create(:classroom, name: 'Nephrology')
 
     visit student_path(student)
-    within '#assign_student_to_classroom' do
+    within '#assign-student-to-classroom' do
       check('Nephrology')
       click_button 'Update Student'
     end
