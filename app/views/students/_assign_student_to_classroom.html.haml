@@ -1,0 +1,9 @@
+%h4 Assign a student to classrooms:
+#assign-student-to-classroom
+  = simple_form_for(@student) do |f|
+
+    .form-inputs
+      = f.association :classrooms, as: :check_boxes
+
+    .form-actions
+      = f.button :submit
