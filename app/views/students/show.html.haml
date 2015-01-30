@@ -13,8 +13,9 @@
       %h4 Assignments:
       %ul
         - classroom.assignments.each do |assignment|
-          %li
+          %li{ id: "assignment-#{assignment.id}" }
             =assignment.name
+            =link_to 'assign as homework', ''
 
 = render 'assign_student_to_classroom'
 
