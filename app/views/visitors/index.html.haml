@@ -1,4 +1,27 @@
 %h1 Welcome
+
+%h5 From the home page you can:
+%ul
+  %li
+    Create a new classroom by clicking the
+    = link_to 'New Classroom', new_classroom_path
+    link
+  %li
+    Create a new student by clicking the
+    = link_to 'New Student', new_student_path
+    link
+
+%h5 From any given Classroom Show page:
+%ul
+  %li You can create assignments
+
+%h5 From any given Student Show page:
+%ul
+  %li From any given Student Show page you can select which classes you want to enroll / unenroll the student from within the "Assign a student to classrooms" section.
+  %li After a student is enrolled in a Classroom, you can have that student begin an assignment
+  %li After a student has begun an assignment, they can input info in the "work" field and submit the assignment
+  %li After a student has submitted an assignment it will show up in the "Submitted assignments" section
+
 = render 'classrooms'
 
 = render 'students'
