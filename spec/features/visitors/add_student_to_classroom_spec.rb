@@ -2,7 +2,7 @@
 #   As a visitor
 #   I want to add a student to a classroom
 #   So I can have more classrooms full of students
-feature 'Add student to classroom classroom' do
+feature 'Add student to classroom' do
   # Scenario: Viewing a student
   #   Given I am a visitor
   #   When I assign a student to a classroom
