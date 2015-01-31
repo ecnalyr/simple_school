@@ -6,16 +6,19 @@
 
 %p
   %b Enrolled Classrooms:
-  - @student.classrooms.each do |classroom|
+  - @classrooms.each do |classroom|
     .classroom{ id: "classroom-#{classroom.id}" }
       %h3
         = classroom.name
-      %h4 Assignments:
-      %ul
-        - classroom.assignments.each do |assignment|
-          %li{ id: "assignment-#{assignment.id}" }
-            =assignment.name
-            =link_to 'assign as homework', ''
+      = render 'classroom_assignments', classroom: classroom
+      %div{ id: "classroom-#{classroom.id}-homework" }
+        %h4 In-progress assignments:
+        -classroom.homeworks.where(student_id: 1).each do |homework|
+          = homework.assignment.name
+          %div
+            submitted?
+            = homework.submitted?
+          %hr
 
 = render 'assign_student_to_classroom'
 

@@ -28,10 +28,10 @@ feature "Interact with assignments associated with a student's classrooms" do
     visit student_path(@student)
 
     within "#assignment-#{@assignment.id}" do
-      click_link 'assign as homework'
+      click_button 'Begin working on assignment as homework'
     end
 
-    within "#classroom-#{@classroom.id}.homework" do
+    within "#classroom-#{@classroom.id}-homework" do
       expect(page).to have_content 'Kidney Extraction'
     end
   end

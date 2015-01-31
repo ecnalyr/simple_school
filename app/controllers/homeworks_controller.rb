@@ -28,7 +28,7 @@ class HomeworksController < ApplicationController
 
     respond_to do |format|
       if @homework.save
-        format.html { redirect_to @homework, notice: 'Homework was successfully created.' }
+        format.html { redirect_to @homework.student, notice: 'Homework was successfully created.' }
         format.json { render :show, status: :created, location: @homework }
       else
         format.html { render :new }
