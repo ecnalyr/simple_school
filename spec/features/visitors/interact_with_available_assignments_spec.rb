@@ -32,5 +32,18 @@ feature "Interact with assignments associated with a student's classrooms" do
     end
 
     expect(page).to have_css('h5', text: 'Kidney Extraction')
+  # Scenario: No complete assignments / homework
+  #   Given I am a visitor
+  #   When I submit homework as completed
+  #   Then I see the homework in the completed assignment list
+  scenario 'visitor can submit homework (complete it)', :truncate do
+    @homework = create(:homework, assignment: @assignment, student: @student)
+    visit student_path(@student)
+    fill_in 'Work', with: 'My homework content'
+    click_button 'Submit assignment'
+
+    within("#completed-classroom-#{@classroom.id}") do
+      expect(page).to have_content 'My homework content'
+    end
   end
 end
