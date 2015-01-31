@@ -1,0 +1,14 @@
+%h4 In-progress assignments:
+%div{ id: "homework-classroom-#{classroom.id}" }
+  -classroom.homeworks.where(student_id: 1).where(submitted: false).each do |homework|
+    %h5
+      = homework.assignment.name
+    = simple_form_for(homework) do |f|
+      .form-inputs
+        = f.input :work
+        = f.hidden_field :submitted, value: true
+
+      .form-actions
+        = f.button :submit, 'Submit assignment'
+
+    %hr

@@ -1,0 +1,9 @@
+%div{ id: "completed-classroom-#{classroom.id}" }
+  %h4 Submitted assignments:
+  -classroom.homeworks.where(student_id: 1).where(submitted: true).each do |homework|
+    %h5
+      = homework.assignment.name
+    %p
+      Work:
+      = homework.work
+    %hr

@@ -42,7 +42,7 @@ class HomeworksController < ApplicationController
   def update
     respond_to do |format|
       if @homework.update(homework_params)
-        format.html { redirect_to @homework, notice: 'Homework was successfully updated.' }
+        format.html { redirect_to @homework.student, notice: 'Homework was successfully updated.' }
         format.json { render :show, status: :ok, location: @homework }
       else
         format.html { render :edit }

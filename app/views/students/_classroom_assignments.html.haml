@@ -1,12 +1,17 @@
 %h4 Assignments:
 %ul
-  - classroom.assignments.each do |assignment|
-    %li{ id: "assignment-#{assignment.id}" }
-      =assignment.name
-      - if @student.assignments.include?(assignment)
-        You're already working on this assignment
-      - else
-        = simple_form_for(Homework.new) do |f|
-          = f.hidden_field :assignment_id, value: assignment.id
-          = f.hidden_field :student_id, value: @student.id
-          = f.button :submit, 'Begin working on assignment as homework', class: 'tiny'
+  - if classroom.assignments.count < 1
+    Visit the
+    = link_to 'class show', classroom_path(classroom)
+    page to add an assignment.
+  - else
+    - classroom.assignments.each do |assignment|
+      %li{ id: "assignment-#{assignment.id}" }
+        =assignment.name
+        - if @student.assignments.include?(assignment)
+          %p You're already working on this assignment
+        - else
+          = simple_form_for(Homework.new) do |f|
+            = f.hidden_field :assignment_id, value: assignment.id
+            = f.hidden_field :student_id, value: @student.id
+            = f.button :submit, 'Begin working on assignment as homework', class: 'tiny'
