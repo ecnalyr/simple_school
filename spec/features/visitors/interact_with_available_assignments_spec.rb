@@ -24,14 +24,17 @@ feature "Interact with assignments associated with a student's classrooms" do
   #   Given I am a visitor
   #   When I assign an assignment as homework to a student
   #   Then I see the homework assigned to the student.
-  scenario 'visitor can assign homework to a student' do
+  scenario 'visitor can assign homework to a student', :truncate do
     visit student_path(@student)
 
     within "#assignment-#{@assignment.id}" do
       click_button 'Begin working on assignment as homework'
     end
 
-    expect(page).to have_css('h5', text: 'Kidney Extraction')
+    within("#homework-classroom-#{@classroom.id}") do
+      expect(page).to have_content 'Kidney Extraction'
+    end
+  end
   # Scenario: No complete assignments / homework
   #   Given I am a visitor
   #   When I submit homework as completed
