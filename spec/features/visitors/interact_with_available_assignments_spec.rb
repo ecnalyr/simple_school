@@ -31,8 +31,6 @@ feature "Interact with assignments associated with a student's classrooms" do
       click_button 'Begin working on assignment as homework'
     end
 
-    within "#classroom-#{@classroom.id}-homework" do
-      expect(page).to have_content 'Kidney Extraction'
-    end
+    expect(page).to have_css('h5', text: 'Kidney Extraction')
   end
 end

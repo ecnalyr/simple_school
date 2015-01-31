@@ -11,10 +11,11 @@
       %h3
         = classroom.name
       = render 'classroom_assignments', classroom: classroom
-      %div{ id: "classroom-#{classroom.id}-homework" }
+      %div{ id: "homework-classroom-#{classroom.id}" }
         %h4 In-progress assignments:
         -classroom.homeworks.where(student_id: 1).each do |homework|
-          = homework.assignment.name
+          %h5
+            = homework.assignment.name
           %div
             submitted?
             = homework.submitted?
